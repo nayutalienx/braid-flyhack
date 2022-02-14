@@ -31,7 +31,7 @@ partial class Form1
     {
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(250, 75);
+        this.ClientSize = new System.Drawing.Size(250, 80);
         this.Text = "Braid flyhack";
     }
 

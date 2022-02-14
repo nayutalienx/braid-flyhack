@@ -19,27 +19,42 @@ public class KeymapService : KeyEventProcessor
 
     public KeymapService()
     {
-        _braidMemoryParser = new BraidMemoryParser();
-        _keyboardHandler = new KeyboardHandler(this);
-        _keyboardHandler.Subscribe();
+        try
+        {
+            _braidMemoryParser = new BraidMemoryParser();
+            _keyboardHandler = new KeyboardHandler(this);
+            _keyboardHandler.Subscribe();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
 
     public void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
     {
-        switch (Char.ToLower(e.KeyChar))
+        try
         {
-            case UP:
-                up();
-                break;
-            case DOWN:
-                down();
-                break;
-            case LEFT:
-                left();
-                break;
-            case RIGHT:
-                right();
-                break;
+            switch (Char.ToLower(e.KeyChar))
+            {
+                case UP:
+                    up();
+                    break;
+                case DOWN:
+                    down();
+                    break;
+                case LEFT:
+                    left();
+                    break;
+                case RIGHT:
+                    right();
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
         }
     }
 
